@@ -1,0 +1,53 @@
+.telephon {
+  display: flex;
+  flex-direction: column;
+  max-width: 320px;
+  width: 100%;
+  margin-top: 20%;
+}
+
+.telephon__input {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 70%;
+  height: 50px;
+  font-size: 16px;
+  border-left: none;
+  border-width: 1px;
+  border-top: 1px solid;
+  border-color: #b4b4b4;
+  padding-left: 10px;
+  border-radius: 0 2px 2px 0;
+}
+
+.telephon__select {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 30%;
+  height: 50px;
+  font-size: 16px;
+  border-right: none;
+  border-width: 1px;
+  border-color: #b4b4b4;
+  background-color: #e4e4e4;
+  background-image: url('../../images/russia.png');
+  background-repeat: no-repeat;
+  background-position: 70% 53%;
+  background-size: 25px;
+  cursor: pointer;
+  border-radius: 2px 0 0 2px;
+}
+
+.telephon__btn {
+  background: #1175de;
+  margin-top: 20px;
+  padding: 15px 0;
+  font-size: 20px;
+  line-height: 20px;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
