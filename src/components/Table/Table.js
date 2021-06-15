@@ -27,7 +27,6 @@ const Table = ({ phones }) => {
     <section className="table">
         <p className="table__text">Телефон:</p>
         <ul>
-          
           {
             phoneNumber.map(p=>{
               return <li key={p.id} className="table__text">{p.phone}</li>

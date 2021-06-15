@@ -3,7 +3,7 @@
   flex-direction: column;
   max-width: 320px;
   width: 100%;
-  margin-top: 20%;
+  /* margin-top: 20%; */
 }
 
 .telephon__input {
@@ -34,10 +34,19 @@
   background-color: #e4e4e4;
   background-image: url('../../images/russia.png');
   background-repeat: no-repeat;
-  background-position: 70% 53%;
+  background-position: 10% 53%;
   background-size: 25px;
   cursor: pointer;
   border-radius: 2px 0 0 2px;
+  padding-left: 35px;
+}
+
+.telephon__select_cu {
+  background-image: url('../../images/cuba.png');
+}
+
+.telephon__select_s {
+  background-image: url('../../images/surinam.png');
 }
 
 .telephon__btn {

@@ -2,22 +2,15 @@ import React from 'react';
 import {useState} from 'react';
 import { connect } from 'react-redux';
 import { addPhone } from '../../actions';
+import { config } from '../../utils/config';
 
 import {db} from '../../firebase';
 
 const Form = ({ dispatch }) => {
 
   let input;
-
-  const config = [
-    {code:7, country:'Россия'},
-    {code:53, country:'Куба'},
-    {code:597, country:'Суринам'},
-  ];
-
   const [selectValue, setSelectValue] = useState('7');
   const [phoneInputValue, setPhoneInputValue] = useState('');
-  // const [fullPhone, setFullPhone] = useState([]);
 
   function selectVal(e) {
     setSelectValue(e.target.value);
@@ -31,15 +24,13 @@ const Form = ({ dispatch }) => {
   function sendForm(e){
     e.preventDefault();
     const fullPhones = `+${selectValue} ${phoneInputValue}`
-    dispatch(addPhone(fullPhones))
-    if(phoneInputValue !==''){
-      ;
-      
+    
+    if(phoneInputValue.trim().length >= 3){
       db.collection('number').add({
         phone: fullPhones
       })
-      .then((docRef) => {
-        
+      .then(() => {
+        dispatch(addPhone(fullPhones))
       })
       .catch((error) => {
           console.error("Error adding document: ", error);
@@ -48,13 +39,25 @@ const Form = ({ dispatch }) => {
     }
   }
 
+  const flag = () =>{
+    let flag;
+    config.map(c=>{
+      // console.log(c.flag)
+      if(selectValue == c.code){
+         flag  = c.flag;
+      }
+    })
+    return flag;
+  }
+
   return (
     <form className="telephon" onSubmit={sendForm}>
         <div>
-          <select value={selectValue} onChange={selectVal} className="telephon__select">
+          <select value={selectValue} onChange={selectVal} className={`telephon__select ${flag()}`}>
             {
               config.map(reg =>{
-                return <option key={reg.country} value={reg.code}  className="telephon__select_ru">+{reg.code}</option>
+               
+                return <option key={reg.country} value={reg.code}  >+{reg.code}</option>
               })
             }
           </select>
